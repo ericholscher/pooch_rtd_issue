@@ -44,6 +44,7 @@ try:
     if response.status_code == 403:
         print("Access Forbidden (403):")
         print(response.text)  # Display response content
+        print(response.headers)
     else:
         print("Response Status Code:", response.status_code)
         print(response.text)  # Display response for other codes as well
