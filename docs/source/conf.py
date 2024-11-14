@@ -40,7 +40,7 @@ epub_show_urls = 'footnote'
 url = "https://github.com/readthedocs/readthedocs.org/raw/refs/heads/main/docs/dev/code-of-conduct.rst"
 print("downloading: ", url)
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    "User-Agent": "My cool testing script"
 }
 try:
     response = requests.get(url, timeout=30, allow_redirects=True, headers=headers)
