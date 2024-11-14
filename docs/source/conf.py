@@ -37,15 +37,18 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
-output_file = open("output_file.nc", "w+b")
 url = "https://github.com/readthedocs/readthedocs.org/raw/refs/heads/main/docs/dev/code-of-conduct.rst"
 print("downloading: ", url)
 try:
     response = requests.get(url, timeout=30, allow_redirects=True)
-    response.raise_for_status()
-    output_file.write(response.content)
+    if response.status_code == 403:
+        print("Access Forbidden (403):")
+        print(response.text)  # Display response content
+    else:
+        print("Response Status Code:", response.status_code)
+        print(response.text)  # Display response for other codes as well
 finally:
-    output_file.close()
+    print("Done")
 
 
 subprocess.run(["ls", "-l"])
